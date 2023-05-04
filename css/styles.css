@@ -579,7 +579,7 @@ Projects
   object-fit: cover;
   height: 15rem;
   border-radius: var(--radius);
-  transition: var(--transition);
+  transition: opacity 0.3s linear;
 }
 
 .project:hover {
@@ -621,18 +621,9 @@ Projects
     gap: 1rem;
   }
 
-  .project {
-    height: 100%;
-    /* transition: background 0.3s linear; */
-  }
-
+  .project,
   .project-img {
     height: 100%;
-  }
-
-  .project-info,
-  .project-img {
-    /* transition: opacity 0.3s linear; */
   }
 
   .project-1 {

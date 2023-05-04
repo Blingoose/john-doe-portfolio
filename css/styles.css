@@ -305,7 +305,6 @@ Sidebar
   display: grid;
   place-items: center;
   transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
-  /*! add later */
   transform: translateX(-100%);
   opacity: 0;
 }

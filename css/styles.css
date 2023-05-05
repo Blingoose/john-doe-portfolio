@@ -676,7 +676,7 @@ Connect
   z-index: 1;
 }
 
-.banner-border {
+.video-banner {
   max-width: 40rem;
   text-align: center;
   background: var(--clr-primary-10);
@@ -693,6 +693,9 @@ Connect
   );
 }
 
+.banner-title {
+  margin-bottom: 2rem;
+}
 /*
 =============== 
 Skills

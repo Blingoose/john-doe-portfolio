@@ -673,7 +673,6 @@ Connect
   height: 100%;
   background: var(--clr-white);
   opacity: 0.6;
-  z-index: 1;
 }
 
 .video-banner {

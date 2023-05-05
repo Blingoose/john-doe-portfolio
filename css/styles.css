@@ -549,20 +549,22 @@ Projects
     auto-fill,
     minmax(calc((1170px - 291.6px) / 3), 1fr)
   );
+
   gap: 2rem;
   margin-bottom: 2rem;
 }
 
 .project {
   position: relative;
-  display: grid;
-  place-items: center;
   transition: var(--transition);
   border-radius: var(--radius);
 }
 
 .project-info {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
   color: var(--clr-white);
   opacity: 0;

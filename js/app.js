@@ -20,3 +20,9 @@ closeBtn.addEventListener("click", function () {
 });
 // set year
 // date.innerHTML = new Date().getFullYear();
+
+// test
+// let video = document.querySelector("video");
+// video.addEventListener("loadedmetadata", function () {
+//   video.play();
+// });

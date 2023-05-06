@@ -743,21 +743,21 @@ Connect
 }
 
 /* ! contact me btn hover effect*/
-.preview {
+.btn.preview {
   position: relative;
 }
 
 .preview:before {
-  content: "yes please";
-  text-transform: uppercase;
+  content: "";
   background: var(--clr-grey-1);
   position: absolute;
+  font-weight: 100;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100.5%;
   height: 100%;
-  border-radius: var(--radius);
   padding: 0.5rem 0.75rem;
+  border-radius: var(--radius);
   clip-path: polygon(
     50% 100%,
     0% calc(100% + 50px),
@@ -772,6 +772,7 @@ Connect
 .btn.preview:hover:before {
   clip-path: polygon(50% -50px, 0% 0%, 0% 100%, 100% 100%, 100% 0%);
   color: var(--clr-white);
+  content: "yes please";
 }
 
 /*

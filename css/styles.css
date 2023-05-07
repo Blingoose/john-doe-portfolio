@@ -657,17 +657,9 @@ Connect
   display: grid;
   place-items: center;
   padding: 10rem 0 10rem 0;
-  margin: 5rem 0;
-  -webkit-clip-path: polygon(
-    50% 0%,
-    100% 10%,
-    100% 90%,
-    50% 100%,
-    0 90%,
-    0 10%
-  );
-  clip-path: polygon(50% 0%, 100% 10%, 100% 90%, 50% 100%, 0 90%, 0 10%);
+  margin: 1rem 0;
 }
+
 .video-container {
   position: absolute;
   top: 0;
@@ -775,11 +767,91 @@ Connect
   content: "yes please";
 }
 
+.btn.preview:has(.video-banner):hover {
+  display: none;
+}
 /*
 =============== 
 Skills
 ===============
 */
+.skills {
+  background: var(--clr-primary-9);
+  margin-top: 8rem;
+}
+
+.skills-center {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(329.6px, 1fr));
+  place-items: center;
+  gap: 0 2rem;
+}
+
+.skills-center article {
+  justify-self: start;
+  max-width: 90vw;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.back-end h3,
+.front-end h3 {
+  color: var(--clr-grey-3);
+  margin-bottom: 1.5rem;
+}
+
+.skill {
+  margin-top: 1.2rem;
+}
+
+.skill p {
+  margin-bottom: 0.5rem;
+  color: var(--clr-grey-1);
+}
+
+.skill-container {
+  position: relative;
+  background: white;
+  height: 1rem;
+  border-radius: var(--radius);
+}
+
+.skill-value {
+  position: absolute;
+  height: 1rem;
+  background: var(--clr-primary-5);
+  top: 0;
+  border-radius: var(--radius);
+}
+
+.value-50 {
+  width: 50%;
+}
+.value-70 {
+  width: 70%;
+}
+.value-80 {
+  width: 80%;
+}
+
+.skill-text {
+  position: absolute;
+  bottom: 100%;
+  transform: translateX(-50%);
+}
+
+.skill-text-50 {
+  left: 50%;
+}
+
+.skill-text-70 {
+  left: 70%;
+}
+
+.skill-text-80 {
+  left: 80%;
+}
+
 /*
 =============== 
 Timeline

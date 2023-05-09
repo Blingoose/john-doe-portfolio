@@ -163,7 +163,7 @@ p {
   text-transform: uppercase;
   background: var(--clr-primary-5);
   color: var(--clr-primary-1);
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 0.875rem;
   letter-spacing: var(--spacing);
   display: inline-block;
   font-weight: 700;
@@ -492,7 +492,7 @@ Services
   display: grid;
   grid-template-columns: repeat(
     auto-fill,
-    minmax(calc((1170px - 291.6px) / 3), 1fr)
+    minmax(calc((var(--max-width) - 291.6px) / 3), 1fr)
   );
   gap: 0 2rem;
 }
@@ -551,7 +551,7 @@ Projects
   display: grid;
   grid-template-columns: repeat(
     auto-fill,
-    minmax(calc((1170px - 291.6px) / 3), 1fr)
+    minmax(calc((var(--max-width) - 291.6px) / 3), 1fr)
   );
 
   gap: 2rem;

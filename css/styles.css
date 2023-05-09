@@ -813,6 +813,7 @@ Skills
 .skill-text {
   position: absolute;
   bottom: 100%;
+  opacity: 0;
   transform: translateX(-50%);
 }
 
@@ -845,7 +846,6 @@ Skills
 
 @keyframes skill-text-animate {
   0% {
-    opacity: 0;
     left: 0;
   }
   35% {
@@ -867,7 +867,21 @@ Skills
 Timeline
 ===============
 */
+.timeline-item:nth-child(2n + 1) {
+  border-top: 0.15rem dashed red;
+  border-right: 0.15rem dashed red;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  margin-left: 1.5rem;
+}
+.timeline-item:nth-child(2n + 2) {
+  border-top: 0.15rem dashed red;
+  border-left: 0.15rem dashed red;
+  border-top-left-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
 
+  margin-right: 1.5rem;
+}
 /*
 =============== 
 Blog

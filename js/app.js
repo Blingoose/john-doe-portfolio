@@ -72,35 +72,65 @@ function animatePercentages(skillValue, skillText, skillLevel) {
   }
 }
 
-function addAnimationClasses() {
-  // add the animation class to each skillValue element.
-  skillValues.forEach((skillValue) => {
-    skillValue.classList.add("skill-value-animate");
-  });
-  // add the animation class to each skillText element.
-  skillTexts.forEach((skillText) => {
-    skillText.classList.add("skill-text-animate");
-  });
+/**
+ * toggles a CSS class on a single element or a NodeList of elements.
+ * @param {HTMLElement|NodeList} target - The target element(s) to apply the action on.
+ * @param {string} action - The action to perform: "add" or "remove".
+ * @param {string} cssClass - The CSS class to be added or removed.
+ */
+
+function toggleCSSClass(target, action, cssClass) {
+  // convert action to lowercase and determine if it's an "add" or "remove" action.
+  const isAddAction = action.toLowerCase() === "add";
+  const isRemoveAction = action.toLowerCase() === "remove";
+
+  // check if the target is a NodeList.
+  if (target instanceof NodeList) {
+    // iterate through each element in the NodeList.
+    target.forEach((element) => {
+      // perform the add or remove action as specified.
+      if (isAddAction) {
+        element.classList.add(cssClass);
+      } else if (isRemoveAction) {
+        element.classList.remove(cssClass);
+      }
+    });
+  } else {
+    // the target is a single HTMLElement.
+    // perform the add or remove action as specified.
+    if (isAddAction) {
+      target.classList.add(cssClass);
+    } else if (isRemoveAction) {
+      target.classList.remove(cssClass);
+    }
+  }
 }
 
-// initialize an IntersectionObserver to detect when the skills section comes into view.
-// when the section becomes 40% visible, set the animation end values, stop observing the section,
-// and add the animation classes to start the animation.
+// intialize an IntersectionObserver to detect when the skills section comes into view.
+// when the section is at least 40% visible, set the animation end values for skill bars and skill text,
+// and add the animation classes to start the skill bar and text animations.
+// when the section is completely out of view, remove the animation classes to reset the animations.
 const observer = new IntersectionObserver(
   (entries) => {
     // grab only 1 entry, since we only have one target section.
     const entry = entries[0];
-    if (entry.isIntersecting) {
+    if (entry.intersectionRatio >= 0.4) {
       // set the animation end values for skill bars, skill text,
-      // and invoke requestAnimationFrame to get ready for the animation classes to be added.
+      // and invoke requestAnimationFrame to prepare for the animations.
       setAnimationEndValue();
       // stop observing the skills section, as the animation only needs to be triggered once.
-      observer.unobserve(entry.target);
-      // add the animation classes to start the skill bar and text animations.
-      addAnimationClasses();
+      // observer.unobserve(entry.target);
+      // add the animation classes to start the skill bar and skill text animations.
+      addOrRemoveCSSClass(skillValues, "add", 1);
+      addOrRemoveCSSClass(skillTexts, "add", "skill-text-animate");
+    } else if (entry.intersectionRatio === 0) {
+      // remove the animation classes to reset the skill bar and text animations when the section is completely out of view.
+      addOrRemoveCSSClass(skillValues, "remove", "skill-value-animate");
+      addOrRemoveCSSClass(skillTexts, "remove", "skill-text-animate");
     }
   },
-  { threshold: 0.4 }
+  // set the observer's threshold to trigger callbacks at 0% (completely out of view) and 40% visibility.
+  { threshold: [0, 0.4] }
 );
 
 const skillsSection = document.querySelector(".skills");

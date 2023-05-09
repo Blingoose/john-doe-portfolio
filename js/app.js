@@ -118,8 +118,8 @@ const observer = new IntersectionObserver(
       // set the animation end values for skill bars, skill text,
       // and invoke requestAnimationFrame to prepare for the animations.
       setAnimationEndValue();
-      // stop observing the skills section, as the animation only needs to be triggered once.
-      // observer.unobserve(entry.target);
+      //// stop observing the skills section, as the animation only needs to be triggered once.
+      //// observer.unobserve(entry.target);
       // add the animation classes to start the skill bar and skill text animations.
       toggleCSSClass(skillValues, "add", "skill-value-animate");
       toggleCSSClass(skillTexts, "add", "skill-text-animate");

@@ -824,32 +824,47 @@ Skills
   border-radius: var(--radius);
 }
 
-.value-50 {
-  width: 50%;
-}
-.value-70 {
-  width: 70%;
-}
-.value-80 {
-  width: 80%;
-}
-
 .skill-text {
   position: absolute;
   bottom: 100%;
   transform: translateX(-50%);
 }
 
-.skill-text-50 {
-  left: 50%;
+/* test */
+.skill-value-animate {
+  animation: animate-skill-value 2s ease-in-out forwards;
 }
 
-.skill-text-70 {
-  left: 70%;
+@keyframes animate-skill-value {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: var(--skill-level);
+  }
 }
 
-.skill-text-80 {
-  left: 80%;
+.skill-text-animate {
+  animation: skill-text-animate 2s ease-in-out forwards;
+}
+
+@keyframes skill-text-animate {
+  0% {
+    opacity: 0;
+    left: 0;
+  }
+  35% {
+    opacity: 0;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    left: var(--skill-level);
+    opacity: 1;
+  }
 }
 
 /*

@@ -121,12 +121,12 @@ const observer = new IntersectionObserver(
       // stop observing the skills section, as the animation only needs to be triggered once.
       // observer.unobserve(entry.target);
       // add the animation classes to start the skill bar and skill text animations.
-      addOrRemoveCSSClass(skillValues, "add", 1);
-      addOrRemoveCSSClass(skillTexts, "add", "skill-text-animate");
+      toggleCSSClass(skillValues, "add", "skill-value-animate");
+      toggleCSSClass(skillTexts, "add", "skill-text-animate");
     } else if (entry.intersectionRatio === 0) {
       // remove the animation classes to reset the skill bar and text animations when the section is completely out of view.
-      addOrRemoveCSSClass(skillValues, "remove", "skill-value-animate");
-      addOrRemoveCSSClass(skillTexts, "remove", "skill-text-animate");
+      toggleCSSClass(skillValues, "remove", "skill-value-animate");
+      toggleCSSClass(skillTexts, "remove", "skill-text-animate");
     }
   },
   // set the observer's threshold to trigger callbacks at 0% (completely out of view) and 40% visibility.

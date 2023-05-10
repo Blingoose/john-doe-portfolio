@@ -912,7 +912,9 @@ Timeline
 
 .number {
   position: absolute;
+  top: 50%;
   background-color: var(--clr-primary-5);
+  color: var(--clr-grey-3);
   border-radius: 50%;
   height: 2rem;
   width: 2rem;
@@ -920,24 +922,108 @@ Timeline
   place-items: center;
   text-align: center;
   font-weight: bold;
+  transform: translate(-50%, -50%);
 }
 
-.timeline-item:nth-child(2n + 1) .number {
-  top: 50%;
+.timeline-item:nth-child(odd) .number {
   left: 100%;
-  transform: translate(-50%, -50%);
 }
 
-.timeline-item:nth-child(2n) .number {
-  top: 50%;
+.timeline-item:nth-child(even) .number {
   left: 0;
-  transform: translate(-50%, -50%);
 }
 /*
 =============== 
 Blog
 ===============
 */
+.card {
+  position: relative;
+  height: 27rem;
+  perspective: 1500px;
+  margin-bottom: 3rem;
+}
+
+.card-side {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius);
+  backface-visibility: hidden;
+  transition: transform 1s ease-in-out;
+  transition: transform 0.7s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.card-front {
+  background: var(--clr-white);
+  padding-bottom: 2rem;
+}
+
+.card-back {
+  display: grid;
+  place-items: center;
+  transform: rotateY(180deg);
+  background: var(--clr-primary-9);
+}
+
+.card:hover .card-front {
+  transform: rotateY(-180deg);
+}
+.card:hover .card-back {
+  transform: rotateY(0deg);
+}
+
+.blog-img {
+  height: 13rem;
+  object-fit: cover;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+}
+
+.blog-info {
+  padding: 1rem 1.5rem;
+}
+
+.blog-info h4 {
+  line-height: 1.2rem;
+}
+
+.card-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.blogger-profile-img {
+  height: 2rem;
+  max-width: 2rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.read-time {
+  justify-self: end;
+  text-transform: uppercase;
+  color: var(--clr-primary-5);
+  font-size: 0.85rem;
+}
+
+@media screen and (min-width: 768px) {
+  .blog-center {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 1rem;
+  }
+}
+
+@media screen and (min-width: 1170px) {
+  .blog-center {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
 /*
 =============== 

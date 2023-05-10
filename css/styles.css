@@ -937,11 +937,16 @@ Timeline
 Blog
 ===============
 */
+.blog-center {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(301px, 1fr));
+  gap: 3rem 1rem;
+}
+
 .card {
   position: relative;
   height: 27rem;
   perspective: 1500px;
-  margin-bottom: 3rem;
 }
 
 .card-side {
@@ -958,7 +963,6 @@ Blog
 
 .card-front {
   background: var(--clr-white);
-  padding-bottom: 2rem;
 }
 
 .card-back {
@@ -982,47 +986,28 @@ Blog
   border-top-right-radius: var(--radius);
 }
 
-.blog-info {
+.card-info {
   padding: 1rem 1.5rem;
-}
-
-.blog-info h4 {
-  line-height: 1.2rem;
 }
 
 .card-footer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  margin-bottom: 1rem;
 }
 
-.blogger-profile-img {
+.card-footer .blogger-profile-img {
   height: 2rem;
-  max-width: 2rem;
+  width: 2rem;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.read-time {
+.card-footer .read-time {
   justify-self: end;
   text-transform: uppercase;
   color: var(--clr-primary-5);
   font-size: 0.85rem;
-}
-
-@media screen and (min-width: 768px) {
-  .blog-center {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 1rem;
-  }
-}
-
-@media screen and (min-width: 1170px) {
-  .blog-center {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
 
 /*

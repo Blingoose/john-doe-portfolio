@@ -210,7 +210,7 @@ Navbar
 }
 
 .nav {
-  height: 5rem;
+  min-height: 5rem;
   padding: 1rem;
   display: grid;
   align-items: center;
@@ -236,6 +236,25 @@ Navbar
   cursor: pointer;
   font-size: 2rem;
   justify-self: end;
+}
+
+@media screen and (max-width: 350px) {
+  .nav-header {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 0.5rem;
+  }
+
+  .nav-logo {
+    width: 100%;
+    max-width: 14.75rem;
+    min-width: 10rem;
+  }
+
+  .nav-btn {
+    justify-self: center;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -374,6 +393,13 @@ Sidebar
   color: var(--clr-primary-5);
 }
 
+@media screen and (max-width: 350px) {
+  .social-icons {
+    width: 100%;
+    gap: 0 0.3rem;
+  }
+}
+
 /*
 =============== 
 Hero
@@ -417,6 +443,13 @@ Hero
 
 .hero-icons {
   justify-items: start;
+  max-width: 90vw;
+}
+
+@media screen and (max-width: 350px) {
+  .hero-center {
+    height: calc(100vh - 10rem);
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -483,10 +516,6 @@ Services
 */
 /*! @bg-grey added in globals */
 
-.about {
-  min-width: 20rem;
-}
-
 /* up to 3 columns layout (3 at 992px width) */
 .services-center {
   display: grid;
@@ -505,7 +534,6 @@ Services
   padding: 3rem 1.5rem;
   margin-bottom: 2rem;
   transition: background 0.3s linear;
-  min-width: 18rem;
 }
 
 .service p,
@@ -535,6 +563,13 @@ Services
   width: 3rem;
   height: 0.12rem;
 }
+
+@media screen and (max-width: 350px) {
+  .services-center {
+    grid-template-columns: 1fr;
+  }
+}
+
 /*
 =============== 
 Projects
@@ -616,6 +651,12 @@ Projects
   transform: scale(0.8);
 }
 
+@media screen and (max-width: 350px) {
+  .projects-center {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media screen and (min-width: 1170px) {
   .projects-center {
     grid-template-columns: repeat(3, 1fr);
@@ -634,7 +675,6 @@ Projects
   .project-1 {
     grid-area: a;
   }
-
   .project-2 {
     grid-area: b;
   }
@@ -653,7 +693,6 @@ Connect
 .connect {
   position: relative;
   min-height: 40vh;
-  min-width: 20rem;
   display: grid;
   place-items: center;
   padding: 10rem 0 10rem 0;
@@ -685,7 +724,6 @@ Connect
   display: grid;
   position: relative;
   width: 90vw;
-  min-width: 18rem;
   max-width: 40rem;
   place-items: center;
   padding: 0.25rem;
@@ -769,6 +807,33 @@ Connect
 .btn.preview:has(.video-banner):hover {
   display: none;
 }
+
+@media screen and (min-width: 2px) and (max-width: 350px) {
+  .video-banner {
+    padding: 3rem 0.7rem;
+  }
+
+  .video-banner::after {
+    content: "";
+    position: absolute;
+    top: 99%;
+    left: 54.1%;
+    border-top: 57px solid var(--clr-primary-10);
+    border-left: 13px solid transparent;
+    border-right: 50px solid transparent;
+  }
+
+  .banner-border::after {
+    content: "";
+    position: absolute;
+    top: 98.5%;
+    left: 53.5%;
+    border-top: 67px solid var(--clr-grey-1);
+    border-left: 10.5px solid transparent;
+    border-right: 59px solid transparent;
+  }
+}
+
 /*
 =============== 
 Skills
@@ -940,14 +1005,13 @@ Blog
 .blog-center {
   display: grid;
   gap: 3rem 1rem;
-  justify-content: center;
+  justify-items: center;
 }
 
 .card {
   position: relative;
-  height: 28rem;
-  max-width: 40rem;
-  perspective: 1500px;
+  height: 100%;
+  perspective: 1200px;
 }
 
 .card-side {
@@ -965,10 +1029,13 @@ Blog
 .card-front {
   position: relative;
   background: var(--clr-white);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 .card-front p {
-  max-width: 28rem;
+  max-width: 30rem;
+  align-self: start;
 }
 
 .card-back {
@@ -994,17 +1061,16 @@ Blog
 
 .card-info {
   padding: 1rem 1.5rem;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 .card-footer {
-  position: absolute;
   width: 100%;
-  bottom: 0;
-  left: 0;
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
-  padding: 1rem 1.5rem;
+  padding: 1rem 0;
 }
 
 .card-footer .blogger-profile-img {
@@ -1039,6 +1105,37 @@ Blog
 Footer
 ===============
 */
+
+.footer {
+  background-color: var(--clr-grey-1);
+  display: grid;
+  place-items: center;
+  min-height: 100%;
+  gap: 2rem 0;
+  padding: 3rem 0;
+}
+
+.footer-icons {
+  margin-top: 0;
+  max-width: 90vw;
+}
+
+.footer-icons .social-icon {
+  color: var(--clr-primary-5);
+}
+
+.footer-icons .social-icon:hover {
+  color: var(--clr-white);
+}
+
+.footer p {
+  max-width: 90vw;
+  font-size: 1.25rem;
+  text-transform: capitalize;
+  color: var(--clr-grey-7);
+  margin-bottom: 0;
+  text-align: center;
+}
 /*
 =============== 
 Single Page

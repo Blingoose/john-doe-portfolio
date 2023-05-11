@@ -19,9 +19,9 @@ closeBtn.addEventListener("click", function () {
   sidebar.classList.remove("show-sidebar");
 });
 
-// set year
-// const date = document.querySelector("#date");
-// date.innerHTML = new Date().getFullYear();
+// set year for the footer
+const date = document.querySelector("#date");
+date.innerHTML = new Date().getFullYear();
 
 // animate the skill bars and their corresponding percentage text when they come into view.
 const skillValues = document.querySelectorAll(".skill-value");

@@ -448,7 +448,7 @@ Hero
 
 @media screen and (max-width: 350px) {
   .hero-center {
-    height: calc(100vh - 10rem);
+    height: calc(100vh - 7.6rem);
   }
 }
 
@@ -1048,6 +1048,7 @@ Blog
 .card:hover .card-front {
   transform: rotateY(-180deg);
 }
+
 .card:hover .card-back {
   transform: rotateY(0deg);
 }
@@ -1105,7 +1106,6 @@ Blog
 Footer
 ===============
 */
-
 .footer {
   background-color: var(--clr-grey-1);
   display: grid;
@@ -1118,6 +1118,7 @@ Footer
 .footer-icons {
   margin-top: 0;
   max-width: 90vw;
+  height: 2.25rem;
 }
 
 .footer-icons .social-icon {
@@ -1141,6 +1142,10 @@ Footer
 Single Page
 ===============
 */
+.single-page {
+  background: var(--clr-primary-10);
+  min-height: calc(100vh - 17.125rem);
+}
 
 /*
 =============== 

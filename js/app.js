@@ -3,15 +3,53 @@ const navBtn = document.querySelector("#nav-btn");
 const closeBtn = document.querySelector("#close-btn");
 const sidebar = document.querySelector("#sidebar");
 
-// add fixed class to navbar
-window.addEventListener("scroll", function () {
-  if (window.pageYOffset > 80) {
-    navbar.classList.add("navbar-fixed");
-  } else {
+//! ############### toggle 'navbar-fixed' class on the navbar ###############
+// This code dynamically toggles the 'navbar-fixed' class on the navbar
+// based on the scroll position and total page content height. It makes
+// the navbar fixed when the page has enough content and the user scrolls
+// beyond a certain point, and reverts to the default position otherwise.
+
+// function to check if the body has enough content to scroll
+function hasEnoughContent() {
+  // check if the total height of the body is greater than the window height + 200
+  return document.body.scrollHeight >= window.innerHeight + 200;
+}
+
+// function to check if the user has scrolled past a certain threshold
+function isScrollPastThreshold() {
+  // check if the user has scrolled down more than 80px
+  return window.pageYOffset >= 80;
+}
+
+// function to check if the user is at the top of the page
+function isAtTopOfPage() {
+  // check if the user is at the very top of the page
+  return window.pageYOffset === 0;
+}
+
+// function to add or remove 'navbar-fixed' class based on scroll position
+function toggleNavbarFixed() {
+  // if there is enough content to scroll
+  if (hasEnoughContent()) {
+    // if user has scrolled past the threshold, add the class
+    if (isScrollPastThreshold()) {
+      navbar.classList.add("navbar-fixed");
+    }
+    // if the user has not scrolled past the threshold, remove the class
+    else {
+      navbar.classList.remove("navbar-fixed");
+    }
+  }
+  // if there is not enough content to scroll and the user is at the top of the page, remove the class
+  else if (isAtTopOfPage()) {
     navbar.classList.remove("navbar-fixed");
   }
-});
-// show sidebar
+}
+
+//* EVENT * add scroll event listener to the window
+window.addEventListener("scroll", toggleNavbarFixed);
+
+//! ############### show sidebar ###############
 navBtn.addEventListener("click", function () {
   sidebar.classList.add("show-sidebar");
 });
@@ -19,11 +57,11 @@ closeBtn.addEventListener("click", function () {
   sidebar.classList.remove("show-sidebar");
 });
 
-// set year for the footer
+//! ############### set year for the footer ###############
 const date = document.querySelector("#date");
 date.innerHTML = new Date().getFullYear();
 
-// animate the skill bars and their corresponding percentage text when they come into view.
+//! ############### animate the skill bars and their corresponding percentage text when they come into view ###############
 const skillValues = document.querySelectorAll(".skill-value");
 const skillTexts = document.querySelectorAll(".skill-text");
 
@@ -72,13 +110,7 @@ function animatePercentages(skillValue, skillText, skillLevel) {
   }
 }
 
-/**
- * toggles a CSS class on a single element or a NodeList of elements.
- * @param {HTMLElement|NodeList} target - The target element(s) to apply the action on.
- * @param {string} action - The action to perform: "add" or "remove".
- * @param {string} cssClass - The CSS class to be added or removed.
- */
-
+// toggles a CSS class on a single element or a NodeList of elements.
 function toggleCSSClass(target, action, cssClass) {
   // convert action to lowercase and determine if it's an "add" or "remove" action.
   const isAddAction = action.toLowerCase() === "add";
@@ -133,5 +165,5 @@ const observer = new IntersectionObserver(
 
 const skillsSection = document.querySelector(".skills");
 
-// start observing the skillsSection, waiting for it to come into view to trigger the skill bar and text animations.
+//* EVENT * start observing the skillsSection, waiting for it to come into view to trigger the skill bar and text animations.
 observer.observe(skillsSection);

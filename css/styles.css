@@ -849,7 +849,7 @@ Connect
   display: none;
 }
 
-@media screen and (min-width: 2px) and (max-width: 350px) {
+@media screen and (max-width: 350px) {
   .video-banner {
     padding: 3rem 0.7rem;
   }

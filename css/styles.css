@@ -162,7 +162,7 @@ p {
 .btn {
   text-transform: uppercase;
   background: var(--clr-primary-5);
-  color: var(--clr-primary-1);
+  color: var(--clr-grey-2);
   padding: 0.5rem 0.875rem;
   letter-spacing: var(--spacing);
   display: inline-block;
@@ -175,7 +175,7 @@ p {
   border-radius: var(--radius);
 }
 .btn:not(.preview):hover {
-  color: var(--clr-primary-1);
+  color: var(--clr-grey-3);
   background: var(--clr-primary-7);
 }
 
@@ -979,7 +979,7 @@ Timeline
   position: absolute;
   top: 50%;
   background-color: var(--clr-primary-5);
-  color: var(--clr-grey-3);
+  color: var(--clr-grey-2);
   border-radius: 50%;
   height: 2rem;
   width: 2rem;
@@ -1147,8 +1147,105 @@ Single Page
   min-height: calc(100vh - 17.125rem);
 }
 
+.page-info {
+  max-width: 700px;
+}
+
+.page-info a {
+  color: var(--clr-primary-5);
+  transition: var(--transition);
+}
+
+.page-info a:hover {
+  color: var(--clr-primary-1);
+}
+
 /*
 =============== 
 Products Page
 ===============
 */
+
+.project-hero {
+  background: var(--clr-primary-10);
+  height: 40vh;
+  display: grid;
+  place-items: center;
+}
+
+.project-hero .section-title {
+  margin-bottom: 0;
+}
+
+.projects-page-center {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(303px, 1fr));
+  gap: 3rem 1rem;
+}
+
+.pg-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.pg-card-img-container {
+  position: relative;
+}
+
+.pg-card-img {
+  object-fit: cover;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  height: 13rem;
+}
+
+.pg-card-img-container a {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 0.3rem solid var(--clr-grey-10);
+  background: var(--clr-primary-5);
+  display: grid;
+  place-items: center;
+}
+
+.pg-card-img-container a i {
+  font-size: 1.7rem;
+  color: var(--clr-grey-2);
+}
+
+.pg-card-details {
+  background: var(--clr-grey-10);
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.pg-card-footer {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: 0 0.5rem;
+  color: var(--clr-primary-5);
+  text-transform: capitalize;
+}
+
+.pg-card-footer i {
+  justify-self: end;
+}
+
+.pg-card-footer a {
+  color: var(--clr-primary-5);
+  justify-self: start;
+  transition: var(--transition);
+}
+
+.pg-card-footer a:hover {
+  color: var(--clr-grey-2);
+}

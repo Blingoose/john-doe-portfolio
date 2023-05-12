@@ -1,4 +1,11 @@
 /*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version,Firefox ESR,not dead
+*/
+
+/*
 =============== 
 Fonts
 ===============
@@ -167,7 +174,6 @@ p {
   letter-spacing: var(--spacing);
   display: inline-block;
   font-weight: 700;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
   font-size: 0.875rem;
   cursor: pointer;
@@ -435,6 +441,7 @@ Hero
 
 .hero-photo {
   position: relative;
+  -o-object-fit: cover;
   object-fit: cover;
   max-height: 30rem;
   max-width: 25rem;
@@ -616,6 +623,7 @@ Projects
 }
 
 .project-img {
+  -o-object-fit: cover;
   object-fit: cover;
   height: 15rem;
   border-radius: var(--radius);
@@ -685,6 +693,27 @@ Projects
     grid-area: d;
   }
 }
+
+@media screen and (min-width: 1170px) {
+  .project-1 {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 3;
+    -ms-grid-column: 1;
+  }
+  .project-2 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 3;
+  }
+  .project-3 {
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
+  }
+  .project-4 {
+    -ms-grid-row: 3;
+    -ms-grid-column: 5;
+  }
+}
 /*
 =============== 
 Connect
@@ -704,6 +733,7 @@ Connect
   left: 0;
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
   z-index: -2;
 }
@@ -787,6 +817,13 @@ Connect
   height: 100%;
   padding: 0.5rem 0.75rem;
   border-radius: var(--radius);
+  -webkit-clip-path: polygon(
+    50% 100%,
+    0% calc(100% + 50px),
+    0% 200%,
+    130% 200%,
+    130% calc(100% + 50px)
+  );
   clip-path: polygon(
     50% 100%,
     0% calc(100% + 50px),
@@ -794,11 +831,15 @@ Connect
     130% 200%,
     130% calc(100% + 50px)
   );
+  transition: -webkit-clip-path 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: clip-path 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  transition: clip-path 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955),
+    -webkit-clip-path 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   border-color: var(--clr-grey-1);
 }
 
 .btn.preview:hover:before {
+  -webkit-clip-path: polygon(50% -50px, 0% 0%, 0% 100%, 100% 100%, 100% 0%);
   clip-path: polygon(50% -50px, 0% 0%, 0% 100%, 100% 100%, 100% 0%);
   color: var(--clr-white);
   content: "yes please";
@@ -893,7 +934,17 @@ Skills
 
 /* skill value and skill text animations */
 .skill-value-animate {
+  -webkit-animation: animate-skill-value 2s ease-in-out forwards;
   animation: animate-skill-value 2s ease-in-out forwards;
+}
+
+@-webkit-keyframes animate-skill-value {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: var(--skill-level);
+  }
 }
 
 @keyframes animate-skill-value {
@@ -906,7 +957,26 @@ Skills
 }
 
 .skill-text-animate {
+  -webkit-animation: skill-text-animate 2s ease-in-out forwards;
   animation: skill-text-animate 2s ease-in-out forwards;
+}
+
+@-webkit-keyframes skill-text-animate {
+  0% {
+    left: 0;
+  }
+  35% {
+    opacity: 0;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    left: var(--skill-level);
+    opacity: 1;
+  }
 }
 
 @keyframes skill-text-animate {
@@ -1021,9 +1091,12 @@ Blog
   width: 100%;
   height: 100%;
   border-radius: var(--radius);
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transition: transform 1s ease-in-out;
   transition: transform 0.7s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transform: translate3d(0, 0, 0);
+  visibility: visible;
 }
 
 .card-front {
@@ -1055,6 +1128,7 @@ Blog
 
 .blog-img {
   height: 12rem;
+  -o-object-fit: cover;
   object-fit: cover;
   border-top-left-radius: var(--radius);
   border-top-right-radius: var(--radius);
@@ -1078,6 +1152,7 @@ Blog
   height: 2rem;
   width: 2rem;
   border-radius: 50%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -1186,6 +1261,8 @@ Products Page
 .pg-card {
   display: grid;
   grid-template-rows: auto 1fr;
+  background: var(--clr-grey-10);
+  border-radius: var(--radius);
 }
 
 .pg-card-img-container {
@@ -1193,6 +1270,7 @@ Products Page
 }
 
 .pg-card-img {
+  -o-object-fit: cover;
   object-fit: cover;
   border-top-left-radius: var(--radius);
   border-top-right-radius: var(--radius);
@@ -1207,7 +1285,7 @@ Products Page
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
-  border: 0.3rem solid var(--clr-grey-10);
+  border: 0.375rem solid var(--clr-grey-10);
   background: var(--clr-primary-5);
   display: grid;
   place-items: center;
@@ -1219,12 +1297,15 @@ Products Page
 }
 
 .pg-card-details {
-  background: var(--clr-grey-10);
   border-bottom-left-radius: var(--radius);
   border-bottom-right-radius: var(--radius);
-  padding: 2rem 1.5rem;
+  padding: 1.5rem;
   display: grid;
   grid-template-rows: auto 1fr auto;
+}
+
+.pg-card-details h4 {
+  margin-top: 1rem;
 }
 
 .pg-card-footer {
